@@ -11,9 +11,7 @@
 #import <GlyphsCore/NSString+BadgeDrawing.h>
 
 @implementation FramesPerSecond {
-	NSTimeInterval fpsMilisec;
-	NSInteger fpsCounter;
-	NSTimeInterval fpsFramesPerSecond;
+	NSTimeInterval _fpsMilisec;
 }
 
 - (id) init {
@@ -56,16 +54,12 @@
 	return 0;
 }
 
-
 - (void) drawForegroundForLayer:(GSLayer*)Layer {}
 
 - (void)drawForegroundWithOptions:(NSDictionary *)options {
-	fpsCounter++;
-	if (fpsMilisec + 1.0 < [NSDate timeIntervalSinceReferenceDate]) {
-		fpsFramesPerSecond = fpsCounter / ([NSDate timeIntervalSinceReferenceDate] - fpsMilisec);
-		fpsMilisec = [NSDate timeIntervalSinceReferenceDate];
-		fpsCounter = 0;
-	}
+	CGFloat fpsFramesPerSecond = 1 / ([NSDate timeIntervalSinceReferenceDate] - _fpsMilisec);
+	_fpsMilisec = [NSDate timeIntervalSinceReferenceDate];
+	
 	NSRect VisibleRect = [editViewController.graphicView visibleRect];
 	VisibleRect = NSInsetRect(VisibleRect, 2, 2);
 	NSColor* color;

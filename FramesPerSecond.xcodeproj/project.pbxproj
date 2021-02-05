@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		56ECE4771FED718B00C39B0A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56ECE4761FED718B00C39B0A /* Cocoa.framework */; };
-		56ECE47A1FED718B00C39B0A /* FramesPerSecond-Prefix.pch in Resources */ = {isa = PBXBuildFile; fileRef = 56ECE4791FED718B00C39B0A /* FramesPerSecond-Prefix.pch */; };
-		56ECE47C1FED718B00C39B0A /* FramesPerSecond-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 56ECE47B1FED718B00C39B0A /* FramesPerSecond-Info.plist */; };
 		56ECE47F1FED718B00C39B0A /* FramesPerSecond.m in Sources */ = {isa = PBXBuildFile; fileRef = 56ECE47E1FED718B00C39B0A /* FramesPerSecond.m */; };
 		56ECE5151FED726000C39B0A /* GlyphsCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56ECE5161FED726000C39B0A /* GlyphsCore.framework */; };
 /* End PBXBuildFile section */
@@ -17,13 +15,11 @@
 /* Begin PBXFileReference section */
 		56ECE4731FED718B00C39B0A /* FramesPerSecond.glyphsReporter */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FramesPerSecond.glyphsReporter; sourceTree = BUILT_PRODUCTS_DIR; };
 		56ECE4761FED718B00C39B0A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
-		56ECE4791FED718B00C39B0A /* FramesPerSecond-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FramesPerSecond-Prefix.pch"; sourceTree = "<group>"; };
-		56ECE47B1FED718B00C39B0A /* FramesPerSecond-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FramesPerSecond-Info.plist"; sourceTree = "<group>"; };
 		56ECE47D1FED718B00C39B0A /* FramesPerSecond.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FramesPerSecond.h; sourceTree = "<group>"; };
 		56ECE47E1FED718B00C39B0A /* FramesPerSecond.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FramesPerSecond.m; sourceTree = "<group>"; };
-		56ECE4811FED718B00C39B0A /* GlyphsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GlyphsCore.framework; path = /Applications/Glyphs.app/Contents/Frameworks/GlyphsCore.framework; sourceTree = "<absolute>"; };
+		56ECE4811FED718B00C39B0A /* GlyphsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GlyphsCore.framework; path = "/Applications/Glyphs 3.app/Contents/Frameworks/GlyphsCore.framework"; sourceTree = "<absolute>"; };
 		56ECE4831FED718B00C39B0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		56ECE5161FED726000C39B0A /* GlyphsCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GlyphsCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		56ECE5161FED726000C39B0A /* GlyphsCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = GlyphsCore.framework; path = "/Applications/Glyphs 3.app/Contents/Frameworks/GlyphsCore.framework"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,8 +64,6 @@
 		56ECE4781FED718B00C39B0A /* FramesPerSecond */ = {
 			isa = PBXGroup;
 			children = (
-				56ECE4791FED718B00C39B0A /* FramesPerSecond-Prefix.pch */,
-				56ECE47B1FED718B00C39B0A /* FramesPerSecond-Info.plist */,
 				56ECE47D1FED718B00C39B0A /* FramesPerSecond.h */,
 				56ECE47E1FED718B00C39B0A /* FramesPerSecond.m */,
 				56ECE4831FED718B00C39B0A /* Info.plist */,
@@ -117,7 +111,7 @@
 				TargetAttributes = {
 					56ECE4721FED718B00C39B0A = {
 						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -143,8 +137,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56ECE47C1FED718B00C39B0A /* FramesPerSecond-Info.plist in Resources */,
-				56ECE47A1FED718B00C39B0A /* FramesPerSecond-Prefix.pch in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,14 +254,16 @@
 		56ECE4871FED718B00C39B0A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 3;
 				DEPLOYMENT_LOCATION = YES;
-				DEVELOPMENT_TEAM = X2L8375ZQ7;
-				DSTROOT = "~/Library/Application Support/Glyphs/Plugins";
-				FRAMEWORK_SEARCH_PATHS = "$(SYSTEM_APPS_DIR)/Glyphs.app/Contents/Frameworks";
+				DSTROOT = "$(USER_LIBRARY_DIR)/Application Support/Glyphs 3/Plugins";
+				FRAMEWORK_SEARCH_PATHS = "\"$(SYSTEM_APPS_DIR)/Glyphs 3.app/Contents/Frameworks\"";
 				INFOPLIST_FILE = FramesPerSecond/Info.plist;
 				INSTALL_PATH = /;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.schriftgestaltung.FramesPerSecond;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = glyphsReporter;
@@ -279,12 +273,14 @@
 		56ECE4881FED718B00C39B0A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = X2L8375ZQ7;
-				FRAMEWORK_SEARCH_PATHS = "$(SYSTEM_APPS_DIR)/Glyphs.app/Contents/Frameworks";
+				CURRENT_PROJECT_VERSION = 3;
+				FRAMEWORK_SEARCH_PATHS = "\"$(SYSTEM_APPS_DIR)/Glyphs 3.app/Contents/Frameworks\"";
 				INFOPLIST_FILE = FramesPerSecond/Info.plist;
 				INSTALL_PATH = /;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.schriftgestaltung.FramesPerSecond;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = NO;

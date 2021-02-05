@@ -10,6 +10,10 @@
 #import <GlyphsCore/GlyphsFilterProtocol.h>
 #import <GlyphsCore/NSString+BadgeDrawing.h>
 
+@interface NSString ()
+- (NSRect)drawAtPoint:(NSPoint)DrawPoint color:(NSColor *)TextColor alignment:(GSAlignment)Alignment;
+@end
+
 @implementation FramesPerSecond {
 	NSTimeInterval _fpsMilisec;
 }

@@ -10,7 +10,6 @@
 #import <GlyphsCore/GlyphsReporterProtocol.h>
 #import <GlyphsCore/GSGlyphViewControllerProtocol.h>
 
-@interface FramesPerSecond : NSObject <GlyphsReporter> {
-    NSViewController <GSGlyphEditViewControllerProtocol> *editViewController;
-}
+@interface FramesPerSecond : NSObject <GlyphsReporter>
+
 @end

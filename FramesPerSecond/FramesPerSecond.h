@@ -7,8 +7,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <GlyphsCore/GlyphsCore.h>
+#if GLYPHS_VERSION >= 4
+#import <GlyphsApp/GlyphsReporterProtocol.h>
+#else
 #import <GlyphsCore/GlyphsReporterProtocol.h>
-#import <GlyphsCore/GSGlyphViewControllerProtocol.h>
+#endif
+
 
 @interface FramesPerSecond : NSObject <GlyphsReporter>
 

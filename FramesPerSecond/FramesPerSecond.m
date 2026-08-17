@@ -7,10 +7,10 @@
 //
 
 #import "FramesPerSecond.h"
-#import <GlyphsCore/GlyphsFilterProtocol.h>
-#import <GlyphsCore/NSString+BadgeDrawing.h>
-#import <GlyphsCore/GSGeometrieHelper.h>
-
+#import <GlyphsCore/GlyphsCore.h>
+#if GLYPHS_VERSION >= 4
+#import <GlyphsApp/GlyphsApp.h>
+#endif
 
 @implementation FramesPerSecond {
 	NSTimeInterval _fpsMilisec;
@@ -57,15 +57,15 @@
 	CGFloat smoothedFPS = MAX(MAX(fps, _fps1), _fps2);
 	_fps2 = _fps1;
 	_fps1 = fps;
-	NSRect visibleRect = [_controller.graphicView visibleRect];
+	NSRect visibleRect = [_controller.graphicView userVisibleRect];
 	NSScrollView *scrollview = [_controller.frameView enclosingScrollView];
 	if ([scrollview scrollerStyle] == NSScrollerStyleLegacy) {
 		visibleRect.origin.y += 11;
 	}
-	visibleRect = NSInsetRect(visibleRect, 2, 2);
+	visibleRect = NSInsetRect(visibleRect, 10, 10);
 	NSColor* color;
 	if (smoothedFPS > 22) {
-		color = [NSColor greenColor];
+		color = [NSColor systemGreenColor];
 	}
 	else if (smoothedFPS > 14) {
 		color = [NSColor orangeColor];
@@ -74,7 +74,8 @@
 		color = [NSColor redColor];
 	}
 	NSString *fpsString = [NSString stringWithFormat:@"fps: %03d", (int)round(smoothedFPS)];
-	[fpsString drawAtPoint:visibleRect.origin color:color alignment:GSBottomLeft handleSize:-1];
+	CGFloat fontSize = [NSString fontSizeForHandleSize:-1];
+	[fpsString drawAtPoint:visibleRect.origin color:color alignment:GSBottomLeft fontSize:fontSize + 2];
 }
 
 - (BOOL)needsExtraMainOutlineDrawingForInactiveLayer:(GSLayer*)Layer {

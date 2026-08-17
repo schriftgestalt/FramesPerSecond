@@ -12,6 +12,8 @@
 #import <GlyphsApp/GlyphsApp.h>
 #endif
 
+static NSString *fpsLabel;
+
 @implementation FramesPerSecond {
 	NSTimeInterval _fpsMilisec;
 	CGFloat _fps1;
@@ -19,6 +21,11 @@
 }
 
 @synthesize controller = _controller;
+
++ (void)initialize {
+	NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+	fpsLabel = NSLocalizedStringFromTableInBundle(@"fps: %03d", nil, bundle, @"fpsLabel");
+}
 
 - (void)loadPlugin {
 	// Is called when the plugin is loaded.
@@ -32,7 +39,8 @@
 - (NSString *)title {
 	// This is the name as it appears in the menu in combination with 'Show'.
 	// E.g. 'return @"Nodes";' will make the menu item read "Show Nodes".
-	return @"Frames per Second";
+	NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+	return NSLocalizedStringFromTableInBundle(@"Frames per Second", nil, bundle, @"plugin title");
 }
 
 - (NSString *)keyEquivalent {
@@ -73,7 +81,7 @@
 	else {
 		color = [NSColor redColor];
 	}
-	NSString *fpsString = [NSString stringWithFormat:@"fps: %03d", (int)round(smoothedFPS)];
+	NSString *fpsString = [NSString stringWithFormat:fpsLabel, (int)round(smoothedFPS)];
 	CGFloat fontSize = [NSString fontSizeForHandleSize:-1];
 	[fpsString drawAtPoint:visibleRect.origin color:color alignment:GSBottomLeft fontSize:fontSize + 2];
 }

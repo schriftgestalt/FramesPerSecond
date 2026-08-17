@@ -1,0 +1,5 @@
+/* fpsLabel */
+"fps: %03d" = "帧/秒: %03d";
+
+/* plugin title */
+"Frames per Second" = "每秒帧数";

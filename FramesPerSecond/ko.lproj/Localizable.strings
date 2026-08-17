@@ -1,0 +1,5 @@
+/* fpsLabel */
+"fps: %03d" = "fps: %03d";
+
+/* plugin title */
+"Frames per Second" = "초당 프레임";

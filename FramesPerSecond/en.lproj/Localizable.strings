@@ -1,0 +1,6 @@
+/* fpsLabel */
+"fps: %03d" = "fps: %03d";
+
+/* plugin title */
+"Frames per Second" = "Frames per Second";
+

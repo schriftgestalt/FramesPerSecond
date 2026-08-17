@@ -86,9 +86,4 @@ static NSString *fpsLabel;
 	[fpsString drawAtPoint:visibleRect.origin color:color alignment:GSBottomLeft fontSize:fontSize + 2];
 }
 
-- (BOOL)needsExtraMainOutlineDrawingForInactiveLayer:(GSLayer*)Layer {
-	// Return NO to disable the black outline. Otherwise remove the method.
-	return YES;
-}
-
 @end
